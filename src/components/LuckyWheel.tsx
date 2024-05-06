@@ -156,6 +156,7 @@ const prizeList = reproducedPrizeList.map((prize) => ({
 
 export function LuckyWheel() {
   const [start, setStart] = useState(false)
+  const [isDefined, setIsDefined] = useState(false)
 
   const handleStart = () => {
     setStart((prevState) => !prevState)
@@ -163,6 +164,7 @@ export function LuckyWheel() {
 
   const handlePrizeDefined = () => {
     console.log('🥳 Prize defined! 🥳')
+    setIsDefined(true)
   }
 
   const prizeIndex = prizes.length * 4 + 0
@@ -178,8 +180,26 @@ export function LuckyWheel() {
           onPrizeDefined={handlePrizeDefined}
         />
       </div>
-
-      <button onClick={handleStart}>Start</button>
+      {!isDefined && (
+        <div className="roulette-button-container">
+          <button onClick={handleStart} className="roulette-button">
+            Крутить барабан
+          </button>
+        </div>
+      )}
+      {isDefined && (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+        >
+          <h4>Поздравляю!</h4>
+          <p>Вы выиграли сережки от Сережки 😛!</p>
+        </div>
+      )}
     </div>
   )
 }

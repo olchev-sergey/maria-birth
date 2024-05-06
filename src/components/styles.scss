@@ -1,6 +1,23 @@
 @import 'react-roulette-pro/dist/index.css';
 
 .roulette-container {
+  margin-top: 400px;
   max-width: 600px;
   overflow: hidden;
+}
+
+.roulette-button {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  margin: 0;
+  border: 1px solid rgb(136, 132, 132);
+  border-radius: 5px;
+}
+
+.roulette-button-container {
+  margin: 16px auto;
+
+  display: flex;
+  justify-content: center;
 }
